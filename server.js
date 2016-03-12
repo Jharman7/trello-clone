@@ -2,6 +2,9 @@ var express = require('express');
 var session = require('express-session');
 // Step 1 - Require your middleware modules here
 
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
+var cors = require('cors');
 var app = express();
 var port = 8000;
 
@@ -9,10 +12,14 @@ var port = 8000;
 // Step 2 - Congfigure your middleware here
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
+app.use(morgan('dev'));
 
 // Step 3 - Test your server, then remove this endpoint, and paste the "Section One" code from below here
 
-/************* API *************/  
+/************* API *************/
 
 //------Remove after testing your server-------//
 
@@ -26,7 +33,7 @@ app.listen(port, function() {
 
 // STEP 4 - Build out the login page in your Angular app as directed in the project guide
 // When you are finished with those instructions, use the commented out code to connect the
-// login function to the backend, and retest the full app to makes sure you have done 
+// login function to the backend, and retest the full app to makes sure you have done
 // everything correctly!
 
 
