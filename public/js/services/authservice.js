@@ -1,6 +1,23 @@
 // Build out your authService here. You will need to make a call to your server and send a body of data with the username,
 // then whatever your server returns needs to be returned to the controller.
+angular
+  .module('trelloClone')
+  .service('authService', function ($http, $q) {
 
+    this.loginRequest = function (name, pass) {
+      var def = $q.defer();
+      $http({
+        method: 'POST',
+        url: '/api/login',
+        data: {name: name}
+      }).then(function (res) {
+        def.resolve(res)
+        console.log(res);
+        return def.promise;
+      })
+    }
+
+  })
 
 
 

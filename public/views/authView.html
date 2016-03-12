@@ -1,3 +1,9 @@
 <!--Code here for your login page-->
-
-
+<div class="authContainer">
+  <form class="authForm" ng-submit="authSubmit()">
+    <h3 id="authWelcome">LOG IN TO TRELLO CLONE</h3>
+    <input ng-model="authName" autofocus placeholder="Username..." class="loginField">
+    <input type = "password"  ng-model="authPass" placeholder ="Password..." class="loginField">
+    <input type="submit" name="authSubmit" value="LOGIN" class="loginButton">
+  </form>
+</div>

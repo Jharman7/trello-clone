@@ -27,6 +27,11 @@ app.get('/api/test', function(req, res) {
     res.send("The request was successful!");
 });
 
+app.post('/api/login',function (req, res) {
+  console.log(req.body);
+  res.json('Success!');
+})
+
 app.listen(port, function() {
     console.log('Server listening on port ' + port);
 });

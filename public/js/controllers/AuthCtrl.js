@@ -1,6 +1,15 @@
-// Code your AuthCtrl here following the project guide - When you have put the commented out code back into your server.js, use the code from below to 
+// Code your AuthCtrl here following the project guide - When you have put the commented out code back into your server.js, use the code from below to
 // connect the login function to the backend, and then retest your app.
+angular
+  .module('trelloClone')
+  .controller('AuthCtrl', function ($scope, $state, authService) {
 
+    $scope.authSubmit = function () {
+      authService.loginRequest($scope.authName,$scope.authPass)
+      $state.go('todo');
+    };
+
+  });
 
 
 
